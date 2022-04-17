@@ -1,6 +1,22 @@
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class Sketch extends PApplet {
+
+  // Variables
+  PImage imgBackground
+  PImage imgLilbaby
+  PImage imgCircle
+  
+  float fltBabyX
+  float fltBabyY
+  float fltBabySpeedX
+  float fltBabySpeedY
+  float fltCircleX
+  float fltCircleY
+  float fltCircleX
+  float fltCircleY
+  float fltRotation
 	
 	
   /**
@@ -8,7 +24,7 @@ public class Sketch extends PApplet {
    */
   public void settings() {
 	// put your size call here
-    size(400, 400);
+    size(800, 800);
   }
 
   /** 
