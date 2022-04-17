@@ -4,19 +4,19 @@ import processing.core.PImage;
 public class Sketch extends PApplet {
 
   // Variables
-  PImage imgBackground
-  PImage imgLilbaby
-  PImage imgCircle
+  PImage imgBackground;
+  PImage imgLilbaby;
+  PImage imgCircle;
   
-  float fltBabyX
-  float fltBabyY
-  float fltBabySpeedX
-  float fltBabySpeedY
-  float fltCircleX
-  float fltCircleY
-  float fltCircleX
-  float fltCircleY
-  float fltRotation
+  float fltBabyX = 150;
+  float fltBabyY = 380;
+  float fltBabySpeedX = 5;
+  float fltBabySpeedY = 2;
+  float fltCircleX = 200;
+  float fltCircleY = 450;
+  float fltCircleSpeedX = 8;
+  float fltCircleSpeedY = 1;
+  float fltRotation = 1;
 	
 	
   /**
@@ -33,19 +33,26 @@ public class Sketch extends PApplet {
    */
   public void setup() {
     background(210, 255, 173);
+
+    // Load images
+    imgBackground = loadImage("background.PNG");
+    imgBackground.resize(width, height);
+    
+    imgLilbaby = loadImage("lebaby.PNG");
+    imgCircle = loadImage("emoji.PNG");
   }
 
   /**
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
-	  
-	// sample code, delete this stuff
-    stroke(128);
-    line(150, 25, 270, 350);  
+    
+    // Background
+    image(imgBackground, 0, 0);
 
-    stroke(255);
-    line(50, 125, 70, 50);  
+    // Draw image
+	  
+	  
   }
   
   // define other methods down here.
