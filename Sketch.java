@@ -8,13 +8,13 @@ public class Sketch extends PApplet {
   PImage imgLilbaby;
   PImage imgCircle;
   
-  float fltBabyX = 150;
-  float fltBabyY = 380;
-  float fltBabySpeedX = 5;
+  float fltBabyX = 100;
+  float fltBabyY = 400;
+  float fltBabySpeedX = 2;
   float fltBabySpeedY = 2;
-  float fltCircleX = 200;
-  float fltCircleY = 450;
-  float fltCircleSpeedX = 8;
+  float fltCircleX = width/3;
+  float fltCircleY = height/3;
+  float fltCircleSpeedX = 1;
   float fltCircleSpeedY = 1;
   float fltRotation = 1;
 	
@@ -39,7 +39,6 @@ public class Sketch extends PApplet {
     imgBackground.resize(width, height);
     
     imgLilbaby = loadImage("lebaby.PNG");
-    imgCircle = loadImage("emoji.PNG");
   }
 
   /**
@@ -47,13 +46,43 @@ public class Sketch extends PApplet {
    */
   public void draw() {
     
-    // Background
+    // Drawings
     image(imgBackground, 0, 0);
+    
+    // Draw and animate image
+    image(imgLilbaby, fltBabyX, fltBabyY);
+    fltRotation += (Math.PI/6);
+    fltBabyX += fltBabySpeedX;
+    fltBabyY += fltBabySpeedY;
+    rotate(radians(fltRotation));
 
-    // Draw image
-	  
-	  
-  }
-  
-  // define other methods down here.
+    // Creates a barrier
+    if(fltBabyX > width - (width / 2) || fltBabyX < 0){
+      fltBabySpeedX *= -1;
+    }
+    if(fltBabyY > height - (height / 2) || fltBabyY < 0){
+      fltBabySpeedY *= -1;
+    }
+    
+    // Draw and animate image
+      fltCircleX = fltCircleSpeedX;
+      fltCircleY = fltCircleSpeedY;
+      pushMatrix();
+      translate(fltBabyX + (200 / 2) - 10, fltBabyY + (200 / 2) + 5);
+      rotate(radians(fltRotation));
+
+      stroke(75, 90, 250);
+      fill(250, 100, 20);
+      ellipse(fltCircleX, fltCircleY, 75, 75);
+      popMatrix();
+      fltRotation += 5;
+
+     // Barrier
+     if((fltCircleX - 150) < 0 || (fltCircleX + 50) > 0){
+       fltCircleSpeedX *= -1;
+     }
+      if((fltCircleY - 60) < 0 || (fltCircleY + 60) > 0){
+       fltCircleSpeedY *= -1;
+     }
+   }
 }
